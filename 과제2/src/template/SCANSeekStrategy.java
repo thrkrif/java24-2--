@@ -15,8 +15,8 @@ public class SCANSeekStrategy implements SeekStrategy{
          // 오름 차순으로 정렬
         Arrays.sort(queue);
 
-        // 방문한 헤드를 저장하는 리스트 -> 필요 없어짐.
-        ArrayList<Integer> visited = new ArrayList<>();
+        // 방문한 헤드를 저장하는 리스트 -> 필요 없어짐. 왜냐하면 그냥 for문으로 1칸씩 이동하면 됨.
+        // ArrayList<Integer> visited = new ArrayList<>();
 
         // 헤드, 아래의 조건에 의해 head가 설정된다.
         int head;
@@ -26,7 +26,8 @@ public class SCANSeekStrategy implements SeekStrategy{
         if (headIndex >= 0) {
             // start가 queue에 있을 때
             head = queue[headIndex];
-        } else {
+        }
+        else {
             // start가 queue에 없을 때 start보다 작은 값 중 가장 큰 값이 head
             // insertionPoint는 삽입 되는 위치의 인덱스를 나타내지만, 우리는 head를 삽입하지 않고
             // insertionPoint - 1 에 위치한 데이터를 head로 할 것임. 
@@ -41,9 +42,9 @@ public class SCANSeekStrategy implements SeekStrategy{
                 head = queue[insertionPoint - 1];
                 headIndex = insertionPoint - 1;
             }
-        }
-        
-        // start 지점의 정보를 저장한다.
+
+    
+        // 초기 head가 설정 되었다. start 지점의 정보를 저장한다.
         int startHead = head;
         int startHeadIndex = headIndex;
 
@@ -51,24 +52,24 @@ public class SCANSeekStrategy implements SeekStrategy{
             // head가 이동한다.
             head = queue[i];
             headIndex = i;
-            visited.add(head);
+            // visited.add(head);
             System.out.printf("%d ", head);
         }
         for(int i = startHeadIndex + 1; i < queue.length; i++){
             // head가 이동한다.
             head = queue[i];
             headIndex = i;
-            visited.add(head);
+            // visited.add(head);
             System.out.printf("%d ", head);
         }
-
+        }
         System.out.println();
-        System.out.println("방문 로그 확인: " + visited);
         System.out.println();
+        // System.out.println("방문 로그 확인: " + visited);
+        // System.out.println();
     }
-    
 
-    
+
 
     @Override
     public String getName(){

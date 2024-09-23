@@ -25,7 +25,8 @@ public class SSTFSeekStrategy implements SeekStrategy{
         if (headIndex >= 0) {
             // start가 queue에 있을 때
             head = queue[headIndex];
-        } else {
+        } 
+        else {
             // start가 queue에 없을 때 가장 가까운 값 찾기
             head = findClosest(queue, start);
         }
