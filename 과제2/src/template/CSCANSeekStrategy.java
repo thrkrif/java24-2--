@@ -9,7 +9,7 @@ public class CSCANSeekStrategy implements SeekStrategy{
     // start로 부터 왼쪽으로 가기로 했다.
     // 1. start가 queue에 있는 경우 : head = start
     // 2. start가 queue에 없는 경우 : head는 start와 가장 가까우면서, start보다 작은 값(왼쪽 값)
-    // head -> queue의 가장 작은 값까지 이동, 그 이후 방문하지 않은 head보다 큰 값 -> queue의 가장 큰 값까지 이동
+    // head -> queue의 가장 작은 값까지 이동, 그 이후 queue에서 가장 큰 값 -> start 다음으로 큰 값까지 head가 이동한다.
     // 방문 로그를 만들지 않아도 상관 없지만, 나중에 사용자가 확인해 보고 싶을 수도 있으니 ArrayList를 지우지 않겠다.
     @Override
     public void seek(int[] queue, int start){
