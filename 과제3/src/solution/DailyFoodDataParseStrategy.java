@@ -23,19 +23,16 @@ public class DailyFoodDataParseStrategy implements ParserStrategy<DailyFoodData>
 
         // 음식 목록을 쉼표로 나누어 각 음식을 리스트로 저장
         String[] foodNames = foodString.split(",");
+        // 먹은 음식들을 저장
         List<FoodData> foods = new ArrayList<>();
 
-         // FoodData 객체로 변환하여 리스트에 추가
-         for (String foodName : foodNames) {
-            // foodDataList에서 해당 음식의 정보를 찾아서 추가
-            FoodData matchingFood = foodDataList.stream()
-                .filter(f -> f.getName().equalsIgnoreCase(foodName.trim()))
-                .findFirst()
-                .orElse(new FoodData(foodName.trim(), 0.0, 0.0)); // 찾지 못하면 기본 값으로 추가
+        // foodNames를 순회하며, 해당 음식의 데이터를 foodDataList에서 찾아 foods에 저장한다.
+        for (String foodName : foodNames) {
+            FoodData matchingFood = foodDataList.stream().filter(f -> f.getName().equalsIgnoreCase(foodName.trim())).findFirst().orElse(new FoodData(foodName.trim(), 0.0, 0.0)); // 찾지 못하면 기본 값으로 추가
             foods.add(matchingFood);
         }
 
-        // DailyFoodData 객체를 반환
+        // DailyFoodData 정보를 갱신
         return new DailyFoodData(date, foods);
     }
 

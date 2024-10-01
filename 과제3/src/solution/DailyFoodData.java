@@ -10,7 +10,7 @@ public class DailyFoodData {
         this.date = date;
         this.foods = foods;
     }
-
+    
     public String getDate() {
         return this.date;
     }

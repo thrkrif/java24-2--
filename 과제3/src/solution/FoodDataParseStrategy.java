@@ -9,7 +9,8 @@ public class FoodDataParseStrategy implements ParserStrategy<FoodData>{
         String name = values[0];
         double carbs = Double.parseDouble(values[1]);
         double calories = Double.parseDouble(values[2]);
-
+        
+        // FoodData의 정보를 갱신
         return new FoodData(name,carbs,calories);
     }
 

@@ -1,5 +1,5 @@
 package solution;
-
+// 권장 섭취량
 public class DailyHealthData {
     private String date;
     private double bloodSugarLevel;
