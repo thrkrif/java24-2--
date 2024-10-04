@@ -9,7 +9,7 @@ public class BallDecorator extends DollDecorator{
 
     @Override
     public String decribe() {
-       // 내부구현
+       
     }
 
     @Override
