@@ -5,6 +5,10 @@ import java.util.List;
 public class MainTest {
 
     public MainTest() {
+        // 기존의 코드를 깃허브에 올리기 위해 복사 붙여넣기 하여 옮겼음
+        // 기존의 코드는 실행이 잘 되는데 여기서는 실행하려면 실행이 되지 않음.
+        // 아래 클래스들을 절대경로로 load하여도 똑같이 java.io.FileNotFoundException 이 뜸.
+
         // Load fooddata
 		List<FoodData> foodDataList = new FileImporter<>(new FoodDataParseStrategy()).loadCSV("fooddata.csv");
 
