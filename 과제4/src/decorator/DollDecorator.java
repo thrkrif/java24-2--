@@ -1,19 +1,26 @@
 package decorator;
+
+import java.awt.Graphics;
+
+
 // Decorator
 // contains a reference to the component object
 public abstract class DollDecorator extends Doll{
     // component object
-    private Doll decoratedDoll;
+    protected Doll decoratedDoll;
     
-    public DollDecorator(Doll decorateDoll){
+    protected DollDecorator(Doll decorateDoll){
         this.decoratedDoll = decorateDoll;
     }
 
     @Override
-    public String describe(){
-        return decoratedDoll.decribe();
+    public abstract String describe();
+
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        if (decoratedDoll != null) {
+            decoratedDoll.paintComponent(g); // 장식된 인형 그리기
+        }
     }
-
-    public abstract void paintComponent(Graphics g);
-
 }
