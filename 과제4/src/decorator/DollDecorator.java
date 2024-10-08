@@ -2,7 +2,6 @@ package decorator;
 
 import java.awt.Graphics;
 
-
 // Decorator
 // contains a reference to the component object
 public abstract class DollDecorator extends Doll{
