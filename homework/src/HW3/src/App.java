@@ -1,6 +1,6 @@
+package HW3.src;
 public class App {
     public static void main(String[] args) throws Exception {
-        new starbuzzcafe.MainTest();
-        new shapeDecorator.MainTest();
+        new solution.MainTest();
     }
 }
