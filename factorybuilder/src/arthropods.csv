@@ -1,0 +1,12 @@
+#type,body regions,antennae,respiration,metamorphosis,wing,leg,distinction
+ARACHNIDA,2,0,BOOK_LUNGS,NONE,0,8,
+CHILOPODA,2,1,TRACHEAL,NONE,0,30,1 pair of legs per segment
+DIPLOPODA,2,1,TRACHEAL,NONE,0,100,2 pairs of legs per segment
+CRUSTACEA,2,2,GILLS,VARIABLE,0,10,
+ODONATA,3,1,TRACHEAL,INCOMPLETE,2,6,wings membranous
+ORTHOPTERA,3,1,TRACHEAL,INCOMPLETE,2,6,hind legs enlarged
+DIPTERA,3,1,TRACHEAL,COMPLETE,1,6,
+COLEOPTERA,3,1,TRACHEAL,COMPLETE,2,6,hard exoskeleton and elytra (wing covers)
+LEPIDOPTERA,3,1,TRACHEAL,COMPLETE,2,6,wings scaly
+HYMENOPTERA,3,1,TRACHEAL,COMPLETE,2,6,wings membranous
+UNKNOWN,unknown,unknown,unknown,unknown,unknown,unknown
