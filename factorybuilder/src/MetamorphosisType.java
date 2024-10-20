@@ -1,12 +1,13 @@
-public enum RespirationType {
-    TRACHEAL("TRACHEAL"),
-    BOOK_LUNGS("BOOK_LUNGS"),
-    GILLS("GILLS"),
+public enum MetamorphosisType {
+    COMPLETE("Complete"),
+    INCOMPLETE("Incomplete"),
+    NONE("None"),
+    VARIABLE("Variable"),
     UNKNOWN("Unknown");
 
     private final String name;
 
-    RespirationType(String name) {
+    MetamorphosisType(String name) {
         this.name = name;
     }
 
