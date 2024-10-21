@@ -8,15 +8,19 @@ public class Singleton {
     private Singleton(){
         System.out.println("lazy initialization");
     }
-    
-    private static Singleton getInstance(){
-        if (instance == null){
-            synchronized(Singleton.class){
-                if (instance == null){
-                    instance = new Singleton();
-                }
+
+    public static Singleton getInstance(){
+       if (instance == null){
+        synchronized (Singleton.class){
+            if (instance == null){
+                instance = new Singleton();
             }
         }
+       }
         return instance;
     }
+
+    public void print() {
+		System.out.println("Thread-Safe Singleton (Lazy Initialization with Double Checked Locking) instance hashCode=" + instance.hashCode());
+	}
 }
