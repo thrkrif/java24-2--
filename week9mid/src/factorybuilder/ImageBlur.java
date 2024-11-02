@@ -5,21 +5,20 @@ import java.awt.image.Kernel;
 
 // ImageBlur Class (process gaussian blur)
 public class ImageBlur implements IProcessor{
-	
-	public ImageBlur(){
+
+	public ImageBlur() {
 		System.out.println(this);
 	}
-
+	
 	@Override
-	public String toString(){
+	public String toString() {
 		return "ImageBlur";
 	}
-
+	
 	@Override
-	public BufferedImage process(BufferedImage image){
+	public BufferedImage process(BufferedImage image) {
 		return blur(image);
 	}
-
 	// blur kernel
 	//public static final float[] blurKernel = { 0.1f, 0.1f, 0.1f, 0.1f, 0.2f, 0.1f, 0.1f, 0.1f, 0.1f };
 	public static final float[] blur3x3Kernel = { 1/16f, 1/8f, 1/16f, 1/8f, 1/4f, 1/8f, 1/16f, 1/8f, 1/16f };
@@ -28,7 +27,6 @@ public class ImageBlur implements IProcessor{
 												  7/273f, 26/273f, 41/273f, 26/273f, 7/273f,
 												  4/273f, 16/273f, 26/273f, 16/273f, 4/273f,
 												  1/273f, 4/273f, 7/273f, 4/273f, 1/273f };
-
 	// gaussian blur
 	public static BufferedImage blur(BufferedImage image)	{
 		if (image == null) return null;
@@ -38,6 +36,5 @@ public class ImageBlur implements IProcessor{
 		newImage = op.filter(image, null);
 		return newImage;
 	}
-
 
 }

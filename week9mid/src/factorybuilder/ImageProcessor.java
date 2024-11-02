@@ -7,7 +7,7 @@ import java.util.List;
 public class ImageProcessor {
     private List<IProcessor> processors = new ArrayList<>();
 
-    private ImageProcessor(Builder builder){
+    private ImageProcessor(Builder builder) {
         this.processors = builder.processors;
     }
 
@@ -16,16 +16,17 @@ public class ImageProcessor {
     }
 
     public void process(String filename){
-        for (IProcessor processor : processors) {
+        for(IProcessor processor : processors){
             String format = ImageUtil.getExtension(filename);
 			BufferedImage image = ImageUtil.load(filename);
             BufferedImage outputImage = processor.process(image);
-			String outputFile = ImageUtil.getFullpathWithoutExt(filename) + processor.toString() + "." + ImageUtil.getExtension(filename);
+			String outputFile = ImageUtil.getFullpathWithoutExt(filename) 
+            + processor.toString() + "." + ImageUtil.getExtension(filename);
 			ImageUtil.save(outputImage, format, outputFile);
         }
     }
 
-    public static class Builder{
+    public static class  Builder {
         private List<IProcessor> processors = new ArrayList<>();
 
         public Builder add(IProcessor processor){
@@ -36,7 +37,6 @@ public class ImageProcessor {
         public ImageProcessor build(){
             return new ImageProcessor(this);
         }
-
     }
 
 }

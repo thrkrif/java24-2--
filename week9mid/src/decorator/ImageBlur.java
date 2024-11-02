@@ -12,7 +12,7 @@ public class ImageBlur extends ImageProcessorDecorator {
 
 	@Override
 	public String getName() {
-		return imageProcessor.getName() + " Blur";
+		return imageProcessor.getName() + "Blur";
 	}
 
 	@Override

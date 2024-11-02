@@ -12,7 +12,7 @@ public class ImageGrayscale extends ImageProcessorDecorator {
 
 	@Override
 	public String getName() {
-		return imageProcessor.getName() + " ImageGrayscale" ;
+		return imageProcessor.getName() + "ImageGrayscale" ;
 	}
 
 	@Override

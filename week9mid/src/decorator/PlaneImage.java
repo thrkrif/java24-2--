@@ -2,7 +2,9 @@ package decorator;
 
 import java.awt.image.BufferedImage;
 
+// Concrete Component
 public class PlaneImage extends ImageProcessor {
+    
     public PlaneImage(String filename){
         load(filename);
     }

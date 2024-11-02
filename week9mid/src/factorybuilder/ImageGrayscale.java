@@ -5,21 +5,19 @@ import java.awt.image.BufferedImage;
 
 // ImageGrayscale Class (process grayscaled image)
 public class ImageGrayscale implements IProcessor{
-
-	public ImageGrayscale(){
+	public ImageGrayscale() {
 		System.out.println(this);
 	}
 
 	@Override
-	public String toString(){
-		return " ImageGrayscale";
+	public String toString() {
+		return "ImageGrayscale";
 	}
 
 	@Override
-	public BufferedImage process(BufferedImage image){
+	public BufferedImage process(BufferedImage image) {
 		return grayscale(image);
 	}
-
 	// grayscale image
 	public static BufferedImage grayscale(BufferedImage image)	{
 		if (image == null) return null;

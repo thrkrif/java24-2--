@@ -4,19 +4,21 @@ import java.awt.image.BufferedImage;
 import java.awt.image.RescaleOp;
 
 // ImageNegative Class (process negative image)
-public class ImageNegative implements IProcessor {
+public class ImageNegative implements IProcessor{
 
-	public ImageNegative(){
+	public ImageNegative() {
 		System.out.println(this);
 	}
 
-	@Override
-	public String toString(){
-		return " ImageNegative";
-	}
 
 	@Override
-	public BufferedImage process(BufferedImage image){
+	public String toString() {
+		return "ImageNegative";
+	}
+
+
+	@Override
+	public BufferedImage process(BufferedImage image) {
 		return negative(image);
 	}
 
@@ -28,4 +30,7 @@ public class ImageNegative implements IProcessor {
 		newImage = op.filter(image, null);
 		return newImage;
 	}
+
+
+
 }

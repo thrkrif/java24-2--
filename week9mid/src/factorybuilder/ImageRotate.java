@@ -2,25 +2,24 @@ package factorybuilder;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
-public class ImageRotate  implements IProcessor{
-	
+public class ImageRotate implements IProcessor {
 	private double angle = 45.0;
-	
-	public ImageRotate(double angle){
+
+	public ImageRotate(double angle) {
 		this.angle = angle;
 		System.out.println(this);
 	}
 
 	@Override
-	public String toString(){
-		return " ImageRotate " + this.angle;
+	public String toString() {
+		return "ImageRotate" + this.angle;
 	}
 
 	@Override
-	public BufferedImage process(BufferedImage image){
+	public BufferedImage process(BufferedImage image) {
 		return rotate(image, angle);
 	}
-
+	
 	public static BufferedImage rotate(BufferedImage image, double rotateAngle) {
 		if (image == null) return null;
 		// creates output image

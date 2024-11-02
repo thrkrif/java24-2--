@@ -5,18 +5,19 @@ import java.awt.image.Kernel;
 
 // ImageEdgeDetect Class (process image edge detection)
 public class ImageEdgeDetect implements IProcessor {
-	
-	public ImageEdgeDetect(){
+
+	public ImageEdgeDetect() {
 		System.out.println(this);
 	}
 
-	@Override
-	public String toString(){
-		return " ImageEdgeDetect";
-	}
 
 	@Override
-	public BufferedImage process(BufferedImage image){
+	public String toString() {
+		return "ImageEdgeDetect";
+	}
+	    
+	@Override
+	public BufferedImage process(BufferedImage image) {
 		return edgeDetect(image);
 	}
 

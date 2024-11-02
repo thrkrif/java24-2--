@@ -1,12 +1,10 @@
 package factorybuilder;
-// single facatory
-// 파라미터가 여러개 있을 수 있다.  : double... 
+
 public class ImageProcessorFactory {
-    public static IProcessor createInstance(String type, double...params){
+    public static IProcessor createInstance(String type, double... params){
         switch (type) {
-            case "ImageGrayScale":
+            case "ImageGrayscale":
                 return new ImageGrayscale();
-            
             case "ImageBlur":
                 return new ImageBlur();
             case "ImageEdgeDetect":
@@ -16,7 +14,9 @@ public class ImageProcessorFactory {
             case "ImageRotate":
                 return new ImageRotate(params[0]);
             default:
-                throw new IllegalArgumentException("UNKNOWN");
+                throw new IllegalArgumentException("UNKNOWN Image Processing");
         }
+
     }
+
 }

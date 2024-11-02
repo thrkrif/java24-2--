@@ -12,7 +12,7 @@ public class ImageRotate extends ImageProcessorDecorator {
 
 	@Override
 	public String getName() {
-		return imageProcessor.getName() + " Rotate " + angle;
+		return imageProcessor.getName() + "Rotate" + angle;
 	}
 
 	@Override

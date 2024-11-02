@@ -12,7 +12,7 @@ public class ImageEdgeDetect extends ImageProcessorDecorator {
 	    
 	@Override
 	public String getName() {
-		return imageProcessor.getName() + " EdgeDetect";
+		return imageProcessor.getName() + "EdgeDetect";
 	}
 
 	@Override

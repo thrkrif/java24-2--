@@ -8,21 +8,22 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
-// ImageUtil Class
+// 이미지 관련 유틸리티 기능을 제공하는 클래스
 public class ImageUtil {
-	// load an image    
+	// 이미지를 로드하는 메서드
     public static BufferedImage load(String fullPath) {
     	try {
-			//this.img = ImageIO.read(new File(fullPath));
+			// 이미지를 읽고 호환 가능한 이미지로 변환하여 반환
 			return toCompatibleImage(ImageIO.read(new File(fullPath)));
 		} catch (IOException e) {
+			// 로드 실패 시 오류 메시지를 출력
 			System.out.println(fullPath  + " could not be loaded. It's not an image!");
 			e.printStackTrace();
 		}
 		return null;
     }
 
-    // convert an image read in with the image io api to a BufferedImage that has a Image Data Model compatible with the default screen device 
+    // 읽은 이미지를 기본 화면 장치와 호환되는 BufferedImage로 변환하는 메서드
     public static BufferedImage toCompatibleImage(BufferedImage image) {
         BufferedImage compatibleImage = null;
     	GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
@@ -35,7 +36,7 @@ public class ImageUtil {
         return compatibleImage;
     }
 
-    // save an image
+    // 이미지를 지정한 경로와 형식으로 저장하는 메서드
     public static void save(BufferedImage image, String format, String fullPath) {
     	try {
 			boolean result = ImageIO.write(image, format, new File(fullPath));
@@ -47,22 +48,22 @@ public class ImageUtil {
 		}
     }
 	
-    // get path from fullPath (e.g. C:/JAVA/IMG.jpg => C:/JAVA/) 
+    // 파일 경로에서 디렉터리 경로를 추출하는 메서드 (예: C:/JAVA/IMG.jpg -> C:/JAVA/)
     public static String getPath(String fullPath) {
     	return fullPath.lastIndexOf('/') == -1 ? null : fullPath.substring(0, fullPath.lastIndexOf('/'));
     }
     
-    // get filenameWithoutExt from fullPath (e.g. C:/JAVA/IMG.jpg => IMG) 
+    // 파일 경로에서 확장자를 제외한 파일 이름을 추출하는 메서드 (예: C:/JAVA/IMG.jpg -> IMG)
     public static String getFilenameWithoutExt(String fullPath) {
     	return fullPath.substring(fullPath.lastIndexOf('/') + 1, fullPath.lastIndexOf('.'));
     }    
     
-    // get fullPathWithoutExt from fullPath (e.g. C:/JAVA/IMG.jpg => C:/JAVA/IMG) 
+    // 파일 경로에서 확장자를 제외한 전체 경로를 추출하는 메서드 (예: C:/JAVA/IMG.jpg -> C:/JAVA/IMG)
     public static String getFullpathWithoutExt(String fullPath) {
     	return fullPath.substring(0, fullPath.lastIndexOf('.'));
     }
     
-    // get extension from fullPath (e.g. C:/JAVA/IMG.jpg => jpg) 
+    // 파일 경로에서 확장자만 추출하는 메서드 (예: C:/JAVA/IMG.jpg -> jpg)
     public static String getExtension(String fullPath) {
     	return fullPath.substring(fullPath.lastIndexOf('.') + 1);
     }

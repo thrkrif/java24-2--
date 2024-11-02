@@ -3,6 +3,7 @@ package decorator;
 import java.awt.image.BufferedImage;
 import java.awt.image.RescaleOp;
 
+// Concrete Decorator로서 실제로 어떻게 Component의 기능을 확장하고 추가할지를 담당한다.
 // ImageNegative Class (process negative image)
 public class ImageNegative extends ImageProcessorDecorator {
 	
@@ -12,7 +13,7 @@ public class ImageNegative extends ImageProcessorDecorator {
 
 	@Override
 	public String getName(){
-		return imageProcessor.getName() + " Negative";
+		return imageProcessor.getName() + "Negative";
 	}
 
 	@Override
