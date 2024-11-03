@@ -1,3 +1,5 @@
+// 자바프로그래밍2 2분반 컴퓨터공학과 32207522 양상훈
+
 package factorybuilder;
 
 import java.awt.Graphics2D;
