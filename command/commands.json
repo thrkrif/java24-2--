@@ -1,0 +1,19 @@
+{
+    "commands": [
+      {
+        "name": "Notepad",
+        "executable": "notepad",
+        "icon": "images/Notepad-Icon.png"
+      },
+      {
+        "name": "Edge",
+        "executable": "cmd /c start msedge",
+        "icon": "images/MS-Edge-Icon.png"
+      },
+      {
+        "name": "Paint",
+        "executable": "mspaint",
+        "icon": "images/MS-Paint-Icon.png"
+      }
+    ]
+  }

@@ -3,7 +3,7 @@ public class App {
         // new template.MainTest();
         // new decorator.MainTest();
         // new factorybuilder.MainTest();
-        // new strategy.MainTest();
-        new observer.MainTest();
+        new strategy.MainTest();
+        // new observer.MainTest();
     }
 }

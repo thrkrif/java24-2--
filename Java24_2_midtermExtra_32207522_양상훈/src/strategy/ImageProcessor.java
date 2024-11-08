@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 // Context 클래스(strategy를 등록하고 실행한다.)
 public class ImageProcessor {
 
-    // Composition 이용
+    // Composition
     private IProcessor processor;
 
     // 생성자를 통해 전략 객체를 초기화한다. -> 초기 설정

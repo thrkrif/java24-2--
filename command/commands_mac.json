@@ -1,0 +1,20 @@
+{
+    "commands": [
+      {
+        "name": "TextEdit",
+        "executable": "open -a TextEdit",
+        "icon": "images/TextEdit-Icon.png"
+      },
+      {
+        "name": "Safari",
+        "executable": "open -a Safari",
+        "icon": "images/Safari-Icon.png"
+      },
+      {
+        "name": "Preview",
+        "executable": "open -a Preview",
+        "icon": "images/Preview-Icon.png"
+      }
+    ]
+  }
+  
