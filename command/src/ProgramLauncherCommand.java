@@ -1,4 +1,5 @@
 // 자바프로그래밍2 2분반 32207522 양상훈
+
 // Concrete Command
 // public class ProgramLauncherCommand implements IProgramLauncherCommand{
 
@@ -156,12 +157,13 @@
 // }
 
 import java.io.IOException;
+import java.io.Serializable;
 
-public class ProgramLauncherCommand implements IProgramLauncherCommand {
+public class ProgramLauncherCommand implements IProgramLauncherCommand, Serializable {
 
     private String executable;
     private String icon;
-    private Process process; // Receiver
+    private transient Process process; // Receiver
     private String appName;  // Mac 애플리케이션 이름 저장
 
     public ProgramLauncherCommand(String executable, String icon){
@@ -185,7 +187,8 @@ public class ProgramLauncherCommand implements IProgramLauncherCommand {
     @Override
     public void execute(){
         try {
-            String os = System.getProperty("os.name").toLowerCase();
+            // getProperty : 실행되는 곳의 정보를 가져오거나 운영체제의 정보가 필요할 때 이용
+            String os = System.getProperty("os.name").toLowerCase(); // 운영체제 이름
             String resolvedExecutable = executable;
 
             // Mac일 경우 Windows 명령을 Mac 명령으로 변환
@@ -228,6 +231,8 @@ public class ProgramLauncherCommand implements IProgramLauncherCommand {
         }
     }
 
+    // commands.json이 윈도우에서는 실행이 잘 되지만 mac에서는 작동이 되지 않음
+    // 이를 해결하기 위한 메서드
     private String resolveExecutableForMac(String executable) {
         switch (executable.toLowerCase()) {
             case "notepad": return "open -a TextEdit";
@@ -236,6 +241,8 @@ public class ProgramLauncherCommand implements IProgramLauncherCommand {
             default: return executable;
         }
     }
+
+    
 
     public String getExecutable() { return this.executable; }
     public void setExecutable(String executable) { this.executable = executable; }
