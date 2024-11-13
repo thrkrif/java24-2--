@@ -1,12 +1,15 @@
+// 자바프로그래밍2 2분반 32207522 양상훈
+
 import java.util.Map;
 import java.util.Stack;
 
+// Invoker 
 public class ProgramLauncherCommandInvoker {
     private IProgramLauncherCommand command;
     private Stack<IProgramLauncherCommand> commandStack = new Stack<>();
-    private Map<String, ProgramLauncherCommand> commandsMap;
+    private Map<String, ProgramLauncherCommand> commandsMap; // yourcode
 
-    // 생성자에서 명령을 불러오고 상태를 로드
+    // yourcode : 생성자에서 명령을 불러오고 상태를 로드
     public ProgramLauncherCommandInvoker(Map<String, ProgramLauncherCommand> commandsMap) {
         this.commandsMap = commandsMap;
         // yourcode : 이전 상태 복원
@@ -50,6 +53,7 @@ public class ProgramLauncherCommandInvoker {
         }
     }
 
+    // yourcode
     public Map<String, ProgramLauncherCommand> getCommandsMap() {
         return this.commandsMap;
     }

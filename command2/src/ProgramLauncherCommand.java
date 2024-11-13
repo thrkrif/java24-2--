@@ -1,14 +1,19 @@
 // 자바프로그래밍2 2분반 32207522 양상훈
 
 import java.io.IOException;
-import java.io.Serializable;
+import java.io.Serializable;   
 
 // Concrete Command
 public class ProgramLauncherCommand implements IProgramLauncherCommand, Serializable {
 
-    private String executable;
-    private String icon;
-    private transient Process process; // Receiver
+    private String executable;  // command.json 파일의 executable을 저장한다.
+    private String icon; // 해당 명령을 GUI에서 표시할 때 사용할 아이콘의 경로를 저장한다.
+    private transient Process process; // Receiver, transient : 직렬화 제외
+    // process는 현재 실행중인 프로세스를 나타낸다.
+    // 직렬화에서 제외하는 이유 : Process는 운영체제에서 실제 프로세스를 관리하는 객체이다.
+    // 자바에서 시스템 리소스를 다루기 때문에 직렬화가 불가능하다.
+    // 직렬화 한다고 해도 실제 운영체제의 프로세스는 자바 프로그램 종료시 사라지기 때문에 다음 실행 시
+    // 재실행이 불가능하다.
     private String appName;  // yourcode : Mac 애플리케이션 이름 저장
 
     public ProgramLauncherCommand(String executable, String icon){
@@ -20,6 +25,7 @@ public class ProgramLauncherCommand implements IProgramLauncherCommand, Serializ
     }
 
     // yourcode : Mac용 애플리케이션 이름을 설정하는 메서드
+    // 출력할때 무슨 애플리케이션인지 알려주는거 외에 딱히 기능 없음.
     private String resolveAppNameForMac(String executable) {
         switch (executable.toLowerCase()) {
             case "notepad": return "TextEdit";
@@ -41,6 +47,7 @@ public class ProgramLauncherCommand implements IProgramLauncherCommand, Serializ
                 resolvedExecutable = resolveExecutableForMac(executable);
             }
 
+            // Mac 아니면 기존의 Windows 명령 실행
             ProcessBuilder pb = new ProcessBuilder(resolvedExecutable.split(" "));
             process = pb.start();
             System.out.println("Executed command: " + resolvedExecutable);

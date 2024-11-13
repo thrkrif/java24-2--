@@ -1,3 +1,5 @@
+// 자바프로그래밍2 2분반 32207522 양상훈
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

@@ -1,4 +1,5 @@
 // 자바프로그래밍2 2분반 32207522 양상훈
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -31,6 +32,7 @@ public class ProgramLauncherCommandsImporter {
 
                 // ProgramLauncherCommand 객체 생성 후 Map에 추가
                 ProgramLauncherCommand command = new ProgramLauncherCommand(executable, icon);
+                // 이름, 명령어
                 commandMap.put(name, command);
             }
         } catch (IOException | ParseException e) {
