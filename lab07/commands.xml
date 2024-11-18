@@ -1,0 +1,17 @@
+<commands>
+  <command>
+    <name>Notepad</name>
+    <executable>notepad</executable>
+    <icon>images/Notepad-Icon.png</icon>
+  </command>
+  <command>
+    <name>Edge</name>
+    <executable>cmd /c start msedge</executable>
+    <icon>images/MS-Edge-Icon.png</icon>
+  </command>
+  <command>
+    <name>Paint</name>
+    <executable>mspaint</executable>
+    <icon>images/MS-Paint-Icon.png</icon>
+  </command>
+</commands>
