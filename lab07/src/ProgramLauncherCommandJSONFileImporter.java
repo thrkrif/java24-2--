@@ -15,13 +15,16 @@ import java.util.List;
 import java.util.Map;
 
 public class ProgramLauncherCommandJSONFileImporter implements FileImporter<ProgramLauncherCommand> {
-    // Pretty Printing 활성화 -> 여러줄로 출력하기 위함.
+    
+    // Gson 객체 생성, Pretty Printing이 목적
     private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
+    // JSON 파일에서 데이터를 읽어서 Map<String, ProgramLauncherCommand> 형태로 반환하는 메서드
     @Override
     public Map<String, ProgramLauncherCommand> importFile(String filepath) {
+        // FileReader를 사용해 JSON 파일을 읽는다.
         try (FileReader reader = new FileReader(filepath)) {
-            // JSON 파일의 루트 객체 파싱
+            // GSON을 이용해 JsonObject로 변환한다.
             JsonObject root = gson.fromJson(reader, JsonObject.class);
 
             // "commands" 배열 읽기
@@ -39,14 +42,16 @@ public class ProgramLauncherCommandJSONFileImporter implements FileImporter<Prog
         }
     }
 
+    // Map<String, ProgramLauncherCommand> 데이터를 JSON 파일로 저장하는 메서드
     @Override
     public void exportFile(String filepath, Map<String, ProgramLauncherCommand> map) {
+        // FileWriter를 이용하여 JSON파일을 쓸 수 있도록 한다.
         try (FileWriter writer = new FileWriter(filepath)) {
-            // Map을 "commands" 키 아래 배열로 변환
+            // Map 객체를 JSON 배열로 변환한다. "commands" 키 아래 저장한다.
             JsonObject root = new JsonObject();
             root.add("commands", gson.toJsonTree(map.values()));
 
-            // Pretty Printed JSON 파일 생성
+            // Pretty Print형식으로 JSON 파일을 저장한다.
             gson.toJson(root, writer);
         } catch (IOException e) {
             throw new RuntimeException("Failed to export JSON file", e);
