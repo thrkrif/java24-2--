@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+service SmartFarm {
+    // 센서 데이터를 서버로 전송
+    rpc SendTemperature(stream TemperatureData) returns (Response);
+
+    // 저장된 데이터를 클라이언트에 반환
+    rpc GetTemperature(Request) returns (stream TemperatureData);
+}
+
+message TemperatureData {
+    float temperature = 1;
+    string timestamp = 2;
+}
+
+message Response {
+    string message = 1;
+}
+
+message Request {
+    string filter = 1; // 예: 특정 시간대 필터링 (추후 확장 가능)
+}
